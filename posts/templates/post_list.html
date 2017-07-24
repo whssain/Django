@@ -4,8 +4,12 @@
 	<title>List</title>
 </head>
 <body>
-<ol> {% for instance in post_list %}</ol>
-<a href="/posts/detail/{{instance.id}}"><li>{{instance.title}}</li></a>
-{% endfor %}
+<ol> {% for x in post_list %}
+<a href="{{x.get_absolute_url}}"><li>{{x.title}}</li></a>
+
+<li>{{x}}</li>
+{% endfor %} </ol>
+
+
 </body>
 </html>
