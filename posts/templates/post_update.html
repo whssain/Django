@@ -4,10 +4,11 @@
 	<title>Update</title>
 </head>
 <body>
+	
 	<form method="Post" action="{% url 'posts:update' post_id=post_object.id %}">
 		{% csrf_token %}
 		{{form.as_p}}
-	<input type="submit" value=" Update Post">
+		<input type="submit" value=" Update Post">
 	
 	</form>
 </body>

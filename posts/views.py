@@ -27,7 +27,7 @@ def post_detail(request ,post_id):
 	return render(request,'post_detail.html',context)
 
 def post_list(request):
-	obj_list= Post.objects.all()
+	obj_list= Post.objects.all().order_by("-timestamp","title")
 	context ={
 	"post_list":obj_list,
 	}
