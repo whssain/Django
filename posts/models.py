@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 class Post(models.Model):
 	title = models.CharField(max_length=50)
+	image = models.ImageField(null=True , blank=True,upload_to="Django_images") 
 	content = models.TextField()
 	updated = models.DateTimeField(auto_now=True)
 	timestamp = models.DateTimeField(auto_now_add=True)
@@ -14,4 +15,4 @@ class Post(models.Model):
 		return reverse("posts:detail", kwargs={"post_id": self.id})
 
 	class Meta:
-		ordering =['-title' ]
+		ordering =['-timestamp' ,'-updated']

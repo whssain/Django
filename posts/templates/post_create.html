@@ -4,7 +4,7 @@
 	<title>So bored</title>
 </head>
 <body>
-	<form method="Post" action="{% url 'posts:create' %}">
+	<form method="Post" action="{% url 'posts:create' %}"  enctype="multipart/from-data">
 		{% csrf_token %}
 		{{form.as_p}}
 	<input type="submit" value=" Create Post">
