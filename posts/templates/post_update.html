@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Update</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+
+{% block content %}
+  <div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
 	
-	<form method="Post" action="{% url 'posts:update' post_id=post_object.id %}" enctype="multipart/from-data">
+	<form method="Post" action="{% url 'posts:update' slug=post_object.slug %}" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{form.as_p}}
-		<input type="submit" value=" Update Post">
+		{{form|crispy}}
+		<input type="submit" value=" Update Post" class="btn btn-success">
 	
 	</form>
-</body>
-</html>
+		</div>
+</div>
+
+
+{% endblock content %}

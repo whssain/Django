@@ -4,6 +4,7 @@ admin.site.register(Post)
 
 
 class TutrModelAdmin(admin.ModelAdmin):
+	
 	list_display = ["title", "timestamp", "updated"]
 	search_fields = ["title", "content"]
 	list_filter = ["timestamp"]
