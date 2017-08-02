@@ -39,6 +39,11 @@
 
                 <br>
                 <br>
+                <button class="btn" onclick="ajax_like()">
+                <span id="like_count">{{like_count}}</span>
+                <span id ="heart "class="glyphicon glyphicon-heart {% if liked %}text-danger{% endif %}"aria-hidden="true"></span>
+                </button>
+                {% include "django_comments.html" %}
             <a href="{% url 'posts:list' %}" class = "btn btn-warning">Go Back To List</a>
 
             {# <a href="{{object.get_absolute_url}}" class="btn btn-primary">View</a> #}
@@ -49,6 +54,7 @@
            
             		
 
+
                 </div>
             </div>
         </div>
@@ -56,7 +62,39 @@
 
 
 
+<script>
+    function ajax_like()
+    {
+        console.log("Like/Unlike clicked!")
+        $.ajax({
 
+            type: 'GET' ,
+            url: '{% url "posts:like_button" post_id=object.id %}' ,                                                   
+            error: function(){
+                console.log("noob")
+
+            },
+            success: function (data) { 
+
+                $("#like_count").text(data.like_count)
+
+                if(data.action==="like"){
+
+                    $("#heart").addClass("text-danger");
+
+                }else{
+
+                    $("#heart").removeClass("text-danger");
+                }
+
+            },
+
+
+
+        });
+
+    }
+</script>
 
             	
             	

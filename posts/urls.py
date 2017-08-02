@@ -9,6 +9,9 @@ urlpatterns = [
     url(r'^create/$' ,views.post_create, name = "create"),
     url(r'^signup/$' ,views.usersignup, name = "signup"),
     url(r'^login/$' ,views.user_login, name = "login"),
-    url(r'^logout/$' ,views.userlogout, name = "logout")
+    url(r'^logout/$' ,views.userlogout, name = "logout"),
+    url(r'^like_button/(?P<post_id>[\d]+)/$', views.like_button, name = "like_button"),
+
+
     
 ]
