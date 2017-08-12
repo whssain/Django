@@ -134,7 +134,7 @@ class PostCreateAPIView(CreateAPIView):
 class PostUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostCreateSerializer
-    permission_classes = [IsAuthenticated, IsOwner
+    permission_classes = [IsAuthenticated, IsOwner]
     lookup_field = 'slug'
     lookup_url_kwarg = 'post_slug'
 
